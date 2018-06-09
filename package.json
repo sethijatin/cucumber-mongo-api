@@ -1,0 +1,24 @@
+{
+  "name": "cucumber-mongo-api",
+  "version": "0.0.1",
+  "description": "Store & Retreive cucumber json results in MongoDB.",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "keywords": [
+    "Cucumber",
+    "MongoDB",
+    "REST",
+    "Express"
+  ],
+  "author": "jatinsethi@outlook.com",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.2",
+    "mongoose": "^5.1.4"
+  }
+}
