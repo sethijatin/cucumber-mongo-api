@@ -4,18 +4,21 @@ var Feature = require('../models/feature.model.schema');
 exports.create = function(req, res){
 
     if(!req.body) {
-        return res.status(400).send({
-            message: "Note content can not be empty"
+        return res.status(401).send({
+            message: "Feature content can not be empty"
         });
     }
 
-    //Add field insertedOn
-    var jsonData = (req.body instanceof Array) ? req.body[0] : req.body;
-    jsonData.insertedOn = Date.now();
+    if(req.body instanceof Array && req.body[0].elements.length > 1) {
+        return res.status(401).send({
+            message: "Please use maven plugin Distributed Features. \n See:  https://github.com/sethijatin/cucumber-feature-distributor"
+        });
+    }
+
+    var data = (req.body instanceof Array) ? req.body[0] : req.body;
 
     // Create a Feature
-    var feature = new Feature(jsonData);
-    console.log(feature);
+    var feature = new Feature(data);
 
     //Save Feature
     feature.save()
@@ -28,7 +31,6 @@ exports.create = function(req, res){
             })
         })
 };
-
 
 //Get all features
 exports.findAll = function(req, res){

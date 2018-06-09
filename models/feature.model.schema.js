@@ -28,9 +28,8 @@ var featureSchema = mongoose.Schema(
         uri : {type: mongoose.Schema.Types.String, required: true},
         tags : {type: [tagSchema], required : true},
         elements : {type: [scenarioSchema], required : true},
-        insertedOn : {type: mongoose.Schema.Types.Date}
+        insertedOn : {type: mongoose.Schema.Types.Date, default: Date.now()}
     }
-
 );
 
 module.exports = mongoose.model('Feature', featureSchema);
