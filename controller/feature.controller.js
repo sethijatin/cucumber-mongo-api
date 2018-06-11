@@ -54,3 +54,17 @@ exports.findAll = function(req, res){
         });
 
 };
+
+//Aggregration Queries
+exports.aggregate = function(req, res){
+
+    Feature.aggregate([req.body])
+        .then(function(response){
+            res.send(response)
+        })
+        .catch(function(error){
+            res.status(500).send({
+                message : error.message || "An exception occurred!"
+            });
+        });
+};
