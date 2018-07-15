@@ -1,10 +1,11 @@
 module.exports = {
     server: {
         port: 3000,
-        key: "your-secret-key"
+        key: "salt-and-pepper"
     },
     mongo: {
-        url: "url-for-mongo-db",
-        db: "update-your-database"
-    }
+        url: "mongodb://localhost:27017/",
+        db: "kia"
+    },
+    whitelist : "http://localhost:1990"
 };

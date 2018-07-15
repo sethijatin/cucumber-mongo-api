@@ -3,10 +3,12 @@ var bodyParser = require('body-parser');
 var config = require("./configs/app.config");
 var mongoose = require("mongoose");
 var jwt = require("jsonwebtoken");
-
+var cors = require('cors');
 // create express app
 var app = express();
 
+//Whitelist the application url
+app.use(cors({origin : config.whitelist}));
 
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({limit: '1mb', extended: true }));
